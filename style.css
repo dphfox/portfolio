@@ -70,7 +70,7 @@ a {
 
 body {
 	background-color: var(--accent);
-	background-image: url("index/bg.jpg");
+	background-image: url("index/bg2.jpg");
 	background-size: 100% 100%;
 	color: var(--text);
 
@@ -114,9 +114,9 @@ body::after {
 	bottom: 0;
 	left: calc(80vw - 20svh);
 	height: 100svh;
-	aspect-ratio: 1655 / 1110;
+	aspect-ratio: 16/9;
 	
-	background-image: url("index/cutout.png");
+	background-image: url("index/bg.jpg");
 	background-size: 100% 100%;
 	z-index: -1;
 	pointer-events: none;
@@ -333,6 +333,7 @@ body > footer > address:has(a:hover) > a:not(:hover) {
 			"nav" minmax(max-content, 1fr)
 			"footer" auto
 			/ 1fr;
+		padding: calc(4 * var(--text-scale));
 	}
 
 	body > h1 {
