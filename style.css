@@ -111,7 +111,7 @@ body::before {
 body::after {
 	content: " ";
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: calc(80vw - 20svh);
 	height: 100svh;
 	aspect-ratio: 16/9;
