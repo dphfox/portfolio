@@ -580,7 +580,8 @@ header > nav > a:hover::before {
 	border-radius: 1rem;
 }
 
-iframe.gallery-item {
+lite-youtube.gallery-item {
+	max-width: none;
 	aspect-ratio: 16/9;
 }
 

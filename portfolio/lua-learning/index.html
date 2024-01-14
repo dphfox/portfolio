@@ -4,6 +4,9 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="../../lib/lite-youtube-embed-v0.3.0/lite-yt-embed.css" />
+		<script fetchpriority="low" defer src="../../lib/lite-youtube-embed-v0.3.0/lite-yt-embed.js"></script>
 		
         <link rel="stylesheet" href="../style.css">
         <meta charset="UTF-8">
@@ -47,13 +50,7 @@
         </header>
 		<hr>
 		<article>
-			<iframe loading="lazy" class="gallery-item" width="192" height="108"
-				src="https://www.youtube-nocookie.com/embed/716_gX2D9sk?si=FXZv435Zcp4E3YIP"
-				title="YouTube video player"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowfullscreen>
-			</iframe>
+			<lite-youtube class="gallery-item" videoid="716_gX2D9sk"></lite-youtube>
 			<img loading="lazy" class="gallery-item" src="gallery1.jpg">
 			<img loading="lazy" class="gallery-item" src="gallery2.jpg">
 			<img loading="lazy" class="gallery-item" src="gallery3.jpg">
