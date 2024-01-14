@@ -173,11 +173,6 @@ a.backlink + .jumbo {
 	margin-top: 0;
 }
 
-header > p {
-	font-size: clamp(1rem, 3vw, 1.5rem);
-    line-height: var(--line-spacing-body);
-}
-
 header > p + p {
     margin-top: 1rem;
 }
