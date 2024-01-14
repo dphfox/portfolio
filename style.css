@@ -1,0 +1,365 @@
+@keyframes wiggle-underline {
+	0% {
+		mask-position: calc(-2 * var(--wiggle-period)) top;
+	}
+	100% {
+		mask-position: calc(-1 * var(--wiggle-period)) top;
+	}
+}
+
+@keyframes float-in {
+	0% {
+		translate: var(--float-in-from);
+		opacity: 0;
+	}
+	100% {
+		translate: var(--float-in-to);
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	@keyframes float-in {
+		0% {
+			translate: var(--float-in-to);
+			opacity: 0;
+		}
+		100% {
+			translate: var(--float-in-to);
+			opacity: 1;
+		}
+	}
+
+	@keyframes wiggle-underline {
+		0% {
+			mask-position: calc(-1 * var(--wiggle-period)) top;
+		}
+		100% {
+			mask-position: calc(-1 * var(--wiggle-period)) top;
+		}
+	}
+}  
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+:root {
+	--text: #fdfdff;
+	--text-60: #fdfdff99;
+	--accent: #008799;
+
+	--line-spacing-body: 150%;
+	--line-spacing-display: 125%;
+
+	--text-scale: 1svh;
+
+	font-family: "Plus Jakarta Sans", system-ui;
+	font-size: 1.25em;
+	line-height: var(--line-spacing-body);
+
+	overflow: hidden;
+}
+
+a {
+	color: inherit;
+}
+
+body {
+	background-color: var(--accent);
+	background-image: url("index/bg.jpg");
+	background-size: 100% 100%;
+	color: var(--text);
+
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
+	padding: calc(8 * var(--text-scale));
+
+	display: grid;
+	grid-template:
+		"h2 h1" auto
+		"nav nav" minmax(max-content, 1fr)
+		"footer footer" auto
+		/ 1fr auto;
+	gap: 1em;
+}
+
+body::before {
+	content: " ";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background-color: #006573;
+	background-size: 100% 100%;
+	z-index: 9999;
+	pointer-events: none;
+
+	--float-in-from: 0 0;
+	--float-in-to: 0 0;
+	animation: float-in 0.5s linear reverse both; 
+}
+
+body::after {
+	content: " ";
+	position: absolute;
+	bottom: 0;
+	left: calc(80vw - 20svh);
+	height: 100svh;
+	aspect-ratio: 1655 / 1110;
+	
+	background-image: url("index/cutout.png");
+	background-size: 100% 100%;
+	z-index: -1;
+	pointer-events: none;
+
+	--float-in-from: -50% 2.5svh;
+	--float-in-to: -50% 0%;
+	animation: float-in 0.5s 0.2s ease both; 
+}
+
+body > h1 {
+	grid-area: h1;
+	text-align: right;
+	font-size: max(1rem, calc(4 * var(--text-scale)));
+	line-height: var(--line-spacing-display);
+	letter-spacing: -0.02em;
+
+	--float-in-from: 0 0;
+	--float-in-to: 0 0;
+	animation: float-in 0.5s 1.2s ease both; 
+}
+
+body > h2 {
+	grid-area: h2;
+	font-size: max(1rem, calc(8 * var(--text-scale)));
+	letter-spacing: -0.02em;
+	line-height: var(--line-spacing-display);
+}
+
+body > h2 > em {
+	font-style: normal;
+	position: relative;
+}
+
+body > h2 > em::after {
+	content: " ";
+	position: absolute;
+	top: calc(100% - 0.125em);
+	left: 0;
+	right: 0;
+	height: 0.25em;
+	
+	--wiggle-period: 0.83333em;
+	background-color: currentColor;
+	mask-image: url("../common/wiggle-underline.svg");
+	mask-size: calc(10 * var(--wiggle-period));
+	mask-repeat: repeat-x;
+	pointer-events: none;
+
+	--float-in-from: 0 0;
+	--float-in-to: 0 0;
+	animation: wiggle-underline 1s linear infinite, float-in 0.5s 0.5s ease both; 
+}
+
+body > h2 > * {
+	display: inline-block;
+	--float-in-from: 0 5svh;
+	animation: float-in 0.5s ease both;
+}
+
+body > h2 > :nth-child(1) {
+	animation-delay: 0.3s;
+}
+
+body > h2 > :nth-child(2) {
+	animation-delay: 0.35s;
+}
+
+body > h2 > :nth-child(3) {
+	animation-delay: 0.4s;
+	/* make this longer than the line underneath so it breaks preferentially */
+	padding-right: 1em;
+}
+
+/* skip the line break */
+
+body > h2 > :nth-child(5) {
+	animation-delay: 0.45s;
+}
+
+body > h2 > :nth-child(6) {
+	animation-delay: 0.5s;
+}
+
+body > nav {
+	grid-area: nav;
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: center;
+}
+
+body > nav > a {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	max-width: max-content;
+	gap: 0.5em;
+
+	text-decoration: none;
+	font-size: max(1rem, calc(4 * var(--text-scale)));
+	line-height: var(--line-spacing-display);
+	font-weight: 700;
+
+	padding: 0.125em;
+	padding-left: 0em;
+	transition: padding-left 0.3s ease, color 0.15s ease;
+
+	--float-in-from: -5svh 5svh;
+	animation: float-in 0.5s ease both;
+}
+
+body > nav > a:nth-child(1) {
+	animation-delay: 0.8s;
+}
+
+body > nav > a:nth-child(2) {
+	animation-delay: 0.9s;
+}
+
+body > nav:has(a:hover) a:not(:hover) {
+	color: var(--text-60);
+	transition: padding-left 0.3s ease, color 0.15s ease;
+}
+
+body > nav > a:hover {
+	padding-left: 0.5em;
+	transition: padding-left 0.15s ease, color 0.15s ease;
+}
+
+body > nav > a::before {
+	content: " ";
+	display: inline-block;
+	width: 0.8em;
+	height: 0.8em;
+	margin-top: 0.1em;
+
+	background-image: url("common/link-arrow.svg");
+	background-size: contain;
+	background-position: center;
+	pointer-events: none;
+	
+	translate: 0 0;
+	transition: translate 0.3s ease, opacity 0.15s ease;
+}
+
+body > nav > a:hover::before {
+	translate: 0 -0.5em;
+	transition: translate 0.15s ease, opacity 0.15s ease;
+}
+
+body > nav:has(a:hover) > a:not(:hover)::before  {
+	opacity: 0.6;
+}
+
+@media (prefers-reduced-motion) {
+	body > nav > a:hover {
+		padding-left: 0;
+	}
+	body > nav > a:hover::before {
+		translate: 0 0;
+	}
+}
+
+body > footer {
+	grid-area: footer;
+
+	font-size: 0.8em;
+	line-height: var(--line-spacing-body);
+	letter-spacing: 0.04em;
+
+	--float-in-from: 0 0;
+	--float-in-to: 0 0;
+	animation: float-in 0.5s 1.2s ease both; 
+}
+
+body > footer > address {
+	font-style: normal;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: 0.5rem;
+	margin-left: -1.4rem;
+}
+
+body > footer > address > a {
+	text-decoration: none;
+
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	padding: 0.5rem 1rem;
+	transition: opacity 0.15s ease;
+}
+
+body > footer > address > a > img {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+body > footer > address:has(a:hover) > a:not(:hover) {
+	opacity: 0.6;
+}
+
+@media (max-aspect-ratio: 11/14) {
+	:root {
+		--text-scale: 0.8svh;
+	}
+	body {
+		grid-template:
+			"h1" auto
+			"h2" auto
+			"nav" minmax(max-content, 1fr)
+			"footer" auto
+			/ 1fr;
+	}
+
+	body > h1 {
+		text-align: left;
+		font-size: 1.5em;
+		letter-spacing: 0.02em;
+	}
+}
+
+@media (max-aspect-ratio: 1/2) {
+	:root {
+		--text-scale: 0.6svh;
+	}
+}
+
+@media (max-aspect-ratio: 2/5) {
+	:root {
+		--text-scale: 0.4svh;
+	}
+}
+
+@media (max-height: 50rem) {
+	body > footer > address > a {
+		padding: 0.25rem 1rem;
+	}
+	body > footer > address > a > img {
+		width: 1.2rem;
+		height: 1.2rem;
+	}
+}

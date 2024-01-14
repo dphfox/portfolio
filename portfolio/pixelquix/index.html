@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+		
+        <link rel="stylesheet" href="../style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pixelquix - Daniel P H Fox - Portfolio</title>
+    </head>
+    <body>
+        <header>
+			<a class="backlink" href="..">Portfolio</a>
+			<section href="pixelquix" style="--portfolio-thumbnail: url('pixelquix/thumb.jpg');" class="portfolio-work">
+				<section class="info">
+					<h1>Pixelquix</h1>
+					<ul class="tags">
+						<li>Software</li>
+					</ul>
+				</section>
+			</section>
+            <p>
+                High-performance image correction software to improve display of
+				images rendered with straight alpha, and output related maps
+				such as signed distance fields, UV maps, and albedo.
+            </p>
+			<p>
+				Written in Rust using a high-performance, multithreaded fill
+				algorithm which propagates colour information to low-alpha
+				pixels. Runs in logarithmic time with respect to input image
+				resolution - orders of magnitude than prior work which runs in
+				quadratic time. Processes 8K input images in seconds on a Ryzen
+				9 7900 CPU.
+            </p>
+			<p class="last-updated">
+				Statistics correct as of <time>14 Jan 2024</time>.
+			</p>
+			<nav>
+				<a href="https://github.com/dphfox/pixelquix">Pixelquix on GitHub</a>
+			</nav>
+        </header>
+		<hr>
+		<article>
+			<img class="gallery-item" src="gallery1.jpg">
+		</article>
+        <footer>
+			<h2>Let's do something<br><em>awesome</em> together.</h2>
+			<address>
+				<a href="mailto:danielphfox+hello@gmail.com" title="Email address">
+					<div class="icon" style="--icon: url('../common/email.svg');"></div>
+					danielphfox+hello@gmail.com
+				</a>
+				<a href="https://linkedin.com/in/dphfox/" title="LinkedIn profile">
+					<div class="icon" style="--icon: url('../common/linkedin.svg');"></div>
+					linkedin.com/in/dphfox
+				</a>
+				<a href="https://github.com/dphfox/" title="GitHub profile">
+					<div class="icon" style="--icon: url('../common/github.svg');"></div>
+					github.com/dphfox
+				</a>
+			</address>
+			<p>
+				Website and graphics by Daniel P H Fox - that's me!<br>
+				© 2023, all rights reserved.
+			</p>
+		</footer>
+    </body>
+</html>
