@@ -76,7 +76,7 @@ body {
 
 	position: relative;
 	width: 100vw;
-	height: 100vh;
+	height: 100svh;
 	overflow: hidden;
 
 	padding: calc(8 * var(--text-scale));
