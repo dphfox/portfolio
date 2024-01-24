@@ -78,7 +78,7 @@ body {
     background-color: var(--bg);
     color: var(--text);
 
-    font-family: "Plus Jakarta Sans", system-ui;
+    font-family: "Plus Jakarta Sans", "Inter", "Inter UI", "Century Gothic", system-ui;
     line-height: var(--line-spacing-body);
 
     padding-top: 8rem;

@@ -80,7 +80,7 @@ body {
     background-color: var(--bg);
     color: var(--text);
 
-    font-family: "Plus Jakarta Sans", system-ui;
+    font-family: "Plus Jakarta Sans", "Inter", "Inter UI", system-ui;
     line-height: var(--line-spacing-body);
 
     padding-top: 8rem;
@@ -420,9 +420,9 @@ header > .portfolio-work {
 	bottom: 0;
 	z-index: -1;
 
-	background: var(--portfolio-thumbnail), url("missing-thumb.jpg");
-	background-size: cover, cover;
-	background-position: center, center;
+	background: var(--portfolio-thumbnail);
+	background-size: cover;
+	background-position: center;
 	
 	scale: 100%;
 	transition: scale 0.2s ease;
