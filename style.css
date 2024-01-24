@@ -57,7 +57,7 @@
 
 	--text-scale: 1svh;
 
-	font-family: "Plus Jakarta Sans", "Inter", "Inter UI", "Century Gothic", system-ui;
+	font-family: "Plus Jakarta Sans", "Inter", "Inter UI", system-ui;
 	font-size: 1.25em;
 	line-height: var(--line-spacing-body);
 
